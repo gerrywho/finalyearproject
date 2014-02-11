@@ -1,0 +1,55 @@
+body
+{
+background: -webkit-linear-gradient(left top,LightGrey, white); /* For Safari */
+background: -o-linear-gradient(bottom right, LightGrey, white); /* For Opera 11.1 to 12.0 */
+background: -moz-linear-gradient(bottom right, LightGrey, white); /* For Firefox 3.6 to 15 */
+background: linear-gradient(to bottom right, LightGrey, white); /* Standard syntax */
+
+}
+
+h2
+{
+    text-align: justify;
+}
+
+td
+{
+    background: white;
+}
+
+#grad1
+{
+position: absolute;
+top: 0px;
+left:0;
+right:0;
+margin:0 auto;    
+height:125px;
+background: -webkit-linear-gradient(left,white,  #0026FF); /* For Safari */
+background: -o-linear-gradient(right, white,  #0026FF); /* For Opera 11.1 to 12.0 */
+background: -moz-linear-gradient(right, white,  #0026FF); /* For Firefox 3.6 to 15 */
+background: linear-gradient(to right, white,  #0026FF); /* Standard syntax */
+}
+    
+#grad2
+{
+position: absolute;
+top: 0px;
+left:0;
+right:0;
+margin:0; 
+width: 125px;   
+height:700px;
+background: -webkit-linear-gradient(white,  #0026FF); /* For Safari */
+background: -o-linear-gradient(white,  #0026FF); /* For Opera 11.1 to 12.0 */
+background: -moz-linear-gradient(white,  #0026FF); /* For Firefox 3.6 to 15 */
+background: linear-gradient(white,  #0026FF); /* Standard syntax */
+}
+    
+#plane
+{
+margin-left: 600px;
+margin-right: auto;
+margin-top: 275px;
+            
+}
