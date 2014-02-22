@@ -1,17 +1,23 @@
 <?php
 include_once '..//Connection/taskmodel.php';
 
+//Connection to database
 $conn=connect();
-$sql = "SELECT * FROM Course";
+
+//Get Society ID from cookie
+$society=$_COOKIE["ID"];
+
+
+//Code for array for member dropdown
+//SQL for all members in logged in society
+$sql = "SELECT * FROM Member WHERE S_ID = '$society' ORDER BY M_L_Name";
 $data = $conn->query($sql);
 
 while($array[] = $data->fetch(PDO::FETCH_OBJ))
 {
-    echo $array->C_Name;
+    echo $array->M_F_Name;
 }
 array_pop($array);
-
-//print_r_html($array);
 ?>
 
 <html lang="en">
@@ -26,30 +32,23 @@ array_pop($array);
         </div>
           
         <div id="plane">
-        <form action="addFixture.php" method="post">
-            <h2 >NEW FIXTURE</h2>
+        <form action="addHandicap.php" method="post">
+            <h2 >HANDICAP ADJUSTMENT</h2>
         <table border="1">
 			<tr>
 				<td>Course Name: </td>
-				<td><select name="courses">
+				<td><select name="members">
                     <?php foreach($array as $option) : ?>
-                    <option value="<?php echo $option->C_ID; ?>"><?php echo $option->C_Name; ?></option>
+                    <option value="<?php echo $option->M_ID; ?>"><?php echo "$option->M_F_Name $option->M_L_Name"; ?></option>
                     <?php endforeach; ?>
                 </select>
                 </td>
 			</tr>
-			<tr>
-				<td>Date: </td>
-				<td><input name="itemdate" type="date" placeholder="Date"/></td>
-			</tr>
-			<tr>
-				<td>Start Time: </td>
-				<td><input name="itemtime" type="time" placeholder="Time"/></td>
-			</tr>
             <tr>
-				<td>Number of Holes: </td>
-				<td><input name="itemholes" type="number" placeholder="Holes"/></td>
+				<td>H/C  Adjustment: </td>
+				<td><input name="itemadjust" type="number" min="-10" max="4.0" step="0.1" placeholder="H/C Adustment" /></td>
 			</tr>
+            
             </table>
 		<input type="submit" value="Add item"/>
 	    </form>

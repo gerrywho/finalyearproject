@@ -9,6 +9,6 @@ $item_holes = $_POST['itemholes'];
 addFixture($courses, $item_date, $item_time, $item_holes);
 header('Location: newFixture.php');
 ?>
-?>
+
 
 

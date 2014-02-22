@@ -110,11 +110,44 @@ function addMember($item_fname, $item_lname, $item_email, $item_address, $item_t
     $stmt->execute();
 }
 
+function addHandicap($members, $itemadjust)
+{
+    $conn = connect();
+    $sql1 = "SELECT H_ID from Handicap where H_ID =
+    (SELECT max(H_ID) from Handicap)";
+    $data = $conn->query($sql1);
+    $result1 = $data->fetch();
+    $id = $result1['H_ID'] + 1;
+
+    $sql2 = "SELECT HCap_Score from Handicap where HCap_Date = (SELECT max(HCap_Date) from Handicap WHERE M_ID = 101) AND M_ID = 101";
+    $data1 = $conn->query($sql2);
+    $hcapdate = $data1->fetch();
+    $currenthcap = $hcapdate['HCap_Score'] + $itemadjust;
+
+   /* $sql3 = "SELECT HCap_Score from Handicap WHERE M_ID = '$members' AND HCap_Date = '$hcapdate'";
+    $data2 = $conn->query($sql3);
+    $currenthcap = $data2->fetch();*/
+
+    //$currenthcap = 1;
+
+    $itemadjust1 = floatval($hcapdate) + $itemadjust;
+    $society = $_COOKIE["ID"];
+    $sql = "INSERT INTO Handicap (H_ID, M_ID, S_ID, HCap_Date, HCap_Score) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindValue(1, $id);
+    $stmt->bindValue(2, $members);
+    $stmt->bindValue(3, $society);
+    $stmt->bindValue(4, date("Y/m/d"));
+    $stmt->bindValue(5, $currenthcap);
+    $stmt->execute();
+}
+
 function random()
 {
         $len = 8;
         return substr(str_shuffle("qwertyuioplkjhgfdsazxcvbnmMNBVCXZASDFGHJKLPOIUYTREWQ0123456789!£$%&*?#"), 0, $len);
 }
+
 
 
 

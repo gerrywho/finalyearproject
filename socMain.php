@@ -21,16 +21,16 @@ echo $_COOKIE["Name"];
 
         <tr>
             <td><input type="button" value="Fixtures" onClick="parent.location='Fixtures/newFixture.php'"></td>
-            <td><input type="button" value="Scores" onClick="parent.location='socMain.php'"></td>
+            <td><input type="button" value="Scores" onClick="parent.location='Scores/newScore.php'"></td>
         </tr>
 
         <tr>
-            <td><input type="button" value="Handicaps" onClick="parent.location='socMain.php'"></td>
+            <td><input type="button" value="Handicaps" onClick="parent.location='Handicaps/newHandicap.php'"></td>
             <td><input type="button" value="Win Rate" onClick="parent.location='socMain.php'"></td>
         </tr>
 
         <tr>
-            <td><input type="button" value="Handicap Sheet" onClick="parent.location='socMain.php'"></td>
+            <td><input type="button" value="Handicap Sheet" onClick="parent.location='HCap_Sheet/hcapsheet.php'"></td>
             <td><input type="button" value="Stableford Checker" onClick="parent.location='socMain.php'"></td>
         </tr>
         </table>
