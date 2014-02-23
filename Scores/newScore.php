@@ -10,6 +10,7 @@ $society=$_COOKIE["ID"];
 
 //Code for array for member dropdown
 //SQL for all members in logged in society
+			
 $sql = "SELECT * FROM Member WHERE S_ID = '$society' ORDER BY M_L_Name";
 $data = $conn->query($sql);
 
@@ -20,9 +21,10 @@ while($array[] = $data->fetch(PDO::FETCH_OBJ))
 array_pop($array);
 
 
+
 //Code for array for round date
 //SQL for all round dates for logged in society
-$sql1 = "SELECT * FROM Round WHERE S_ID = '$society' ORDER BY R_Date";
+$sql1 = "SELECT * FROM Round WHERE S_ID = '$society'";
 $data1 = $conn->query($sql1);
 
 while($array1[] = $data1->fetch(PDO::FETCH_OBJ))
@@ -37,7 +39,24 @@ array_pop($array1);
     <head>
        <link rel="stylesheet" type="text/css" href="..//CSS/index.css">
         <script src="http://code.jquery.com/jquery-1.11.0.js"></script>
-        <script src="myScript.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                document.getElementById('manual').onclick =
+                function () {
+                    if (($("#manual").val() == "unchecked")) {
+                        $("#manual").val("checked");
+                        $("#manadjust").prop('disabled', false);
+                        alert($("#manual").val());
+                    }
+                    else {
+                        $("#manual").val("unchecked");
+                        $("#manadjust").prop('disabled', true);
+                        alert($("#manual").val());
+                    }
+                };
+            });
+        </script>
+
     </head>
     <body>
        <div id="grad1">
@@ -46,7 +65,7 @@ array_pop($array1);
           
         <div id="plane">
         <form action="addScore.php" method="post">
-            <h2 >NEW FIXTURE</h2>
+            <h2 >NEW SCORES</h2>
         <table border="1">
 			<tr>
 				<td>Course Name: </td>
@@ -56,6 +75,7 @@ array_pop($array1);
                     <?php endforeach; ?>
                 </select>
                 </td>
+
 			</tr>
 			<tr>
 				<td>Round Date: </td>
@@ -81,17 +101,18 @@ array_pop($array1);
 			</tr>
             <tr>
 				<td>Score: </td>
-				<td><input name="itemholes" type="number" placeholder="Score"/></td>
+				<td><input name="itemscore" type="number" placeholder="Score"/></td>
 			</tr>
             <tr>
-            <td><input type="checkbox" value="manual">Adjust Handicap Manually</td>
+            <td><input type="checkbox" value="unchecked" id="manual">Adjust Handicap Manually</td>
             </tr>
              <tr>
 				<td>H/C  Adjustment: </td>
-				<td><input name="itemadjust" type="number" min="-10" max="0.1" step="0.1" placeholder="H/C Adustment" disabled="disabled"/></td>
+				<td><input name="itemadjust" id="manadjust" type="number" min="-10" max="0.1" step="0.1" placeholder="H/C Adustment" disabled="disabled"/></td>
 			</tr>
             
             </table>
+            <span id="ifchecked"> </span>
 		<input type="submit" value="Add item"/>
 	    </form>
         </div>

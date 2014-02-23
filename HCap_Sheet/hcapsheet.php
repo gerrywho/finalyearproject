@@ -10,37 +10,47 @@ $society=$_COOKIE["ID"];
 
 //Code for array for member dropdown
 //SQL for all members in logged in society
-$sql = "select M_F_Name, M_L_Name, HCap_Date, HCap_Score from Member
-join Handicap on Member.M_ID = Handicap.M_ID";
+$sql = "select HCap_Date, HCap_Score, M_F_Name, M_L_Name from Handicap
+join Member on Handicap.M_ID = Member.M_ID WHERE Handicap.HCap_Date = (SELECT max(HCap_Date) from Handicap WHERE Handicap.M_ID = Member.M_ID) AND Member.S_ID = '$society'";
 $data = $conn->query($sql);
 
 while($array[] = $data->fetch(PDO::FETCH_OBJ))
 {
     echo $array->M_F_Name;
 }
+
 array_pop($array);
+$length = count($array);
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
+         <link rel="stylesheet" type="text/css" href="..//CSS/index.css">
+   
         <title></title>
     </head>
     <body>
-        BLah<br>
-        <table>
-        <tr>
-            <td>Member</td>
-            <td>  </td> 
-            <td>Handicap</td>
-        </tr>
-         <tr>
-             <td><?php echo $array[1]->M_F_Name . " " . $array[1]->M_L_Name?></td> 
-             <td>  </td>
-             <td><?php echo $array[1]->HCap_Score ?></td> 
-         </tr>
-            </table>
+        <div id="grad1">
+    <div id="grad2"><img src="..//Images/minilogo.png" alt="logo">
+   
+</div>
+    <div id="plane">
+
+ <?php echo '<table>';
+ echo'<tr><td>Member</td><td>Handicap</td></tr>';
+for ($x=0;$x<$length;$x++) {
+    echo '<tr>';
+    echo '<td>'.$array[$x]->M_F_Name. " " . $array[$x]->M_L_Name.'</td>';
+    echo '<td>'.round($array[$x]->HCap_Score, 1).'</td>';
+    echo '<td>'.$item[2].'</td>';
+    echo '</tr>';
+}
+echo '</table>';
+?>
         <button onclick="window.print()">Print this page</button>
+        </div>
+    </div>
     </body>
 </html>

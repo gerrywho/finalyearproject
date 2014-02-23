@@ -23,14 +23,16 @@ if ($result['sum'] === '0') {
     $name = $result1['S_Name'];
     //echo $result['sum'];
     if ($result1['S_Email'] === $username && $result1['S_Password'] === $password) {
-        setcookie("ID", $result1['S_ID']);
-        setcookie("User", $username);
-        setcookie("Name", $name);
+        setcookie("ID", $result1['S_ID'], time()+3600, '/', 'azurewebsites.net');
+        setcookie("User", $username, time()+3600, '/', 'azurewebsites.net');
+        setcookie("Name", $name, time()+3600, '/', 'azurewebsites.net');
         //session_register("username");
         //session_register("password");
         header("location:login_success.php");
     }
 }
 ?>
+
+<html></html>
 
 

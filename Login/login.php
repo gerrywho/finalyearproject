@@ -1,5 +1,8 @@
 <?php
-include_once 'Connection/taskmodel.php';
+//include_once 'Connection/taskmodel.php';
+setcookie("ID", "", time()-3600);
+setcookie("User", "", time()-3600);
+setcookie("Name", "", time()-3600);
 ?>
 <html>
     <head>

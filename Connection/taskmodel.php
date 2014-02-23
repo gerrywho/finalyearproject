@@ -119,7 +119,7 @@ function addHandicap($members, $itemadjust)
     $result1 = $data->fetch();
     $id = $result1['H_ID'] + 1;
 
-    $sql2 = "SELECT HCap_Score from Handicap where HCap_Date = (SELECT max(HCap_Date) from Handicap WHERE M_ID = 101) AND M_ID = 101";
+    $sql2 = "SELECT HCap_Score from Handicap where HCap_Date = (SELECT max(HCap_Date) from Handicap WHERE M_ID = '$members') AND M_ID = '$members'";
     $data1 = $conn->query($sql2);
     $hcapdate = $data1->fetch();
     $currenthcap = $hcapdate['HCap_Score'] + $itemadjust;
@@ -140,6 +140,31 @@ function addHandicap($members, $itemadjust)
     $stmt->bindValue(4, date("Y/m/d"));
     $stmt->bindValue(5, $currenthcap);
     $stmt->execute();
+}
+
+function addScore($item_member, $item_rounddate, $item_prize, $item_score) {
+    
+     $conn = connect();
+    
+    $society = $_COOKIE["ID"];
+
+
+    $sql2 = "SELECT C_ID from Round where R_ID = '$item_rounddate'";
+    $data1 = $conn->query($sql2);
+    $result2 = $data1->fetch();
+    $courses=$result2['C_ID'];
+
+    $sql3 = "INSERT INTO Player_Round (R_ID, C_ID, S_ID, M_ID, P_R_Score, prize) VALUES (?, ?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql3);
+    $stmt->bindValue(1, $item_rounddate);
+    $stmt->bindValue(2, $courses);
+    $stmt->bindValue(3, $society);
+    $stmt->bindValue(4, $item_member);
+    $stmt->bindValue(5, $item_score);
+    $stmt->bindValue(6, $item_prize);
+    $stmt->execute();
+
+
 }
 
 function random()
