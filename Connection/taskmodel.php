@@ -167,6 +167,162 @@ function addScore($item_member, $item_rounddate, $item_prize, $item_score) {
 
 }
 
+function calcHandicap($item_member, $item_rounddate, $item_score)
+{
+    $conn = connect();
+    $society = $_COOKIE["ID"];
+
+    $sql2 = "SELECT H_ID from Handicap where H_ID =
+    (SELECT max(H_ID) from Handicap)";
+    $data2 = $conn->query($sql2);
+    $result2 = $data2->fetch();
+    $id = $result2['H_ID'] + 1;
+
+     $sq = "SELECT HCap_Score from Handicap where HCap_Date = (SELECT max(HCap_Date) from Handicap WHERE M_ID = '$item_member') AND M_ID = '$item_member'";
+    $dat = $conn->query($sq);
+    $hcapdate = $dat->fetch();
+    $currenthcap = $hcapdate['HCap_Score'];
+
+    $sql = "SELECT C_ID from Round where R_ID = '$item_rounddate'";
+    $data = $conn->query($sql);
+    $result = $data->fetch();
+    $courses=$result['C_ID'];
+
+    $sql1 = "SELECT C_Std_Scratch from Course where C_ID = '$courses'";
+    $data1 = $conn->query($sql1);
+    $result1 = $data1->fetch();
+    $scratch=$result1['C_Std_Scratch'];
+
+    if($currenthcap >= 28.5 && $currenthcap <= 36)
+    {
+        if($item_score == $scratch)
+        {
+            $newHandicap = $currenthcap;
+        }
+        elseif($item_score < $scratch)
+        {
+            if(($scratch - $item_score)>5)
+            {
+                $newHandicap = floatval($currenthcap + 0.1);
+            }
+            else
+            {
+                $newHandicap = $currenthcap;    
+            }
+        }
+        else
+        {
+            $difference = $item_score - $scratch;
+            $newHandicap = floatval($currenthcap - ($difference * 0.5));
+        }
+        
+    }elseif($currenthcap >= 20.5 && $currenthcap <= 28.4){
+        
+        if($item_score == $scratch)
+        {
+            $newHandicap = $currenthcap;
+        }
+        elseif($item_score < $scratch)
+        {
+            if(($scratch - $item_score)>4)
+            {
+                $newHandicap = floatval($currenthcap + 0.1);
+            }
+            else
+            {
+                $newHandicap = $currenthcap;    
+            }
+        }
+        else
+        {
+            $difference = $item_score - $scratch;
+            $newHandicap = floatval($currenthcap - ($difference * 0.4));
+        }
+
+    }elseif($currenthcap >= 12.5 && $currenthcap <= 20.4){
+        
+        if($item_score == $scratch)
+        {
+            $newHandicap = $currenthcap;
+        }
+        elseif($item_score < $scratch)
+        {
+            if(($scratch - $item_score)>3)
+            {
+                $newHandicap = floatval($currenthcap + 0.1);
+            }
+            else
+            {
+                $newHandicap = $currenthcap;    
+            }
+        }
+        else
+        {
+            $difference = $item_score - $scratch;
+            $newHandicap = floatval($currenthcap - ($difference * 0.3));
+        }
+    }elseif($currenthcap >= 5.5 && $currenthcap <= 12.4){
+      
+      if($item_score == $scratch)
+        {
+            $newHandicap = $currenthcap;
+        }
+        elseif($item_score < $scratch)
+        {
+            if(($scratch - $item_score)>2)
+            {
+                $newHandicap = floatval($currenthcap + 0.1);
+            }
+            else
+            {
+                $newHandicap = $currenthcap;    
+            }
+        }
+        else
+        {
+            $difference = $item_score - $scratch;
+            $newHandicap = floatval($currenthcap - ($difference * 0.2));
+        }  
+    }elseif($currenthcap >= 0.1 && $currenthcap <= 5.4){
+      
+      if($item_score == $scratch)
+        {
+            $newHandicap = $currenthcap;
+        }
+        elseif($item_score < $scratch)
+        {
+            if(($scratch - $item_score)>1)
+            {
+                $newHandicap = floatval($currenthcap + 0.1);
+            }
+            else
+            {
+                $newHandicap = $currenthcap;    
+            }
+        }
+        else
+        {
+            $difference = $item_score - $scratch;
+            $newHandicap = floatval($currenthcap - ($difference * 0.1));
+        }  
+    }
+    else{
+        
+    }
+
+
+    $sql4 = "INSERT INTO Handicap (H_ID, M_ID, S_ID, HCap_Date, HCap_Score) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql4);
+    $stmt->bindValue(1, $id);
+    $stmt->bindValue(2, $item_member);
+    $stmt->bindValue(3, $society);
+    $stmt->bindValue(4, date("Y/m/d"));
+    $stmt->bindValue(5, $newHandicap);
+    $stmt->execute();
+
+
+}
+
 function random()
 {
         $len = 8;

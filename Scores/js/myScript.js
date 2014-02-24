@@ -3,13 +3,13 @@
                 function () {
                     if (($("#manual").val() == "unchecked")) {
                         $("#manual").val("checked");
-                        $("#manadjust").prop('disabled', false);
+                        $("#itemadjust").prop('disabled', false);
                         //$("#itemhandicap").prop('disabled', true)
                         alert($("#manual").val());
                     }
                     else {
                         $("#manual").val("unchecked");
-                        $("#manadjust").prop('disabled', true);
+                        $("#itemadjust").prop('disabled', true);
                         alert($("#manual").val());
                     }
                 };

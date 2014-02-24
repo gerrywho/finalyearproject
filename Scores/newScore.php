@@ -88,18 +88,23 @@ array_pop($array1);
 			</tr>
             <tr>
 				<td>Score: </td>
-				<td><input name="itemscore" type="number" placeholder="Score"/></td>
+				<td><input name="itemscore" type="number" placeholder="Score" required=required/></td>
 			</tr>
-            
+            <tr>
 				<td>Handicap: </td>
 				<td><input name="itemhandicap" id="itemhandicap" type="text" placeholder="Handicap" disabled="disabled"/></td>
 			</tr>
             <tr>
-            <td><input type="checkbox" value="unchecked" id="manual">Adjust Handicap Manually</td>
+                
+            <td>
+                <!--<input type="text" name="checkbox_name" value="unchecked" hidden="hidden">-->
+                <input type="checkbox" name="checkbox_name" value="unchecked" id="manual">Adjust Handicap Manually</td>
             </tr>
              <tr>
 				<td>H/C  Adjustment: </td>
-				<td><input name="itemadjust" id="manadjust" type="number" min="-10" max="0.1" step="0.1" placeholder="H/C Adustment" disabled="disabled"/></td>
+                <td>
+                    <!--<input type="text" name="itemadjust" value="0" hidden="hidden"/>-->
+                    <input name="itemadjust" id="itemadjust" type="number" min="-10" max="0.1" step="0.1" placeholder="H/C Adustment" disabled="disabled"/></td>
 			</tr>
             
             </table>
