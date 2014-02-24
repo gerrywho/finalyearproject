@@ -33,29 +33,15 @@ while($array1[] = $data1->fetch(PDO::FETCH_OBJ))
 }
 array_pop($array1);
 
+
+
 ?>
 
 <html lang="en">
     <head>
        <link rel="stylesheet" type="text/css" href="..//CSS/index.css">
         <script src="http://code.jquery.com/jquery-1.11.0.js"></script>
-        <script type="text/javascript">
-            $(function () {
-                document.getElementById('manual').onclick =
-                function () {
-                    if (($("#manual").val() == "unchecked")) {
-                        $("#manual").val("checked");
-                        $("#manadjust").prop('disabled', false);
-                        alert($("#manual").val());
-                    }
-                    else {
-                        $("#manual").val("unchecked");
-                        $("#manadjust").prop('disabled', true);
-                        alert($("#manual").val());
-                    }
-                };
-            });
-        </script>
+        <script src="js/myScript.js"type="text/javascript"></script>
 
     </head>
     <body>
@@ -68,12 +54,13 @@ array_pop($array1);
             <h2 >NEW SCORES</h2>
         <table border="1">
 			<tr>
-				<td>Course Name: </td>
-				<td><select name="members">
+				<td>Player Name: </td>
+				<td><select name="members" id="members">
                     <?php foreach($array as $option) : ?>
                     <option value="<?php echo $option->M_ID; ?>"><?php echo "$option->M_F_Name $option->M_L_Name"; ?></option>
                     <?php endforeach; ?>
                 </select>
+                    <input type="button" onclick="handicap()" id="name-submit" value="Get Handicap"/>
                 </td>
 
 			</tr>
@@ -102,6 +89,10 @@ array_pop($array1);
             <tr>
 				<td>Score: </td>
 				<td><input name="itemscore" type="number" placeholder="Score"/></td>
+			</tr>
+            
+				<td>Handicap: </td>
+				<td><input name="itemhandicap" id="itemhandicap" type="text" placeholder="Handicap" disabled="disabled"/></td>
 			</tr>
             <tr>
             <td><input type="checkbox" value="unchecked" id="manual">Adjust Handicap Manually</td>
