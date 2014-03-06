@@ -40,7 +40,7 @@ function addSociety($name, $email, $pwd, $contact)
     $stmt->execute();
 }
 
-function addCourse($name,$address,$town, $county,$contact)
+function addCourse($name,$address,$town, $county,$contact,$scratch)
 {
     $conn = connect();
     $sql1 = "SELECT C_ID from Course where C_ID =
@@ -49,7 +49,7 @@ function addCourse($name,$address,$town, $county,$contact)
     $result1 = $data->fetch();
     $id = $result1['C_ID'] + 1;
     echo $id;
-    $sql = "INSERT INTO COURSE (C_ID, C_Name, C_Address, C_Town, C_County, C_Contact)  VALUES (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO COURSE (C_ID, C_Name, C_Address, C_Town, C_County, C_Contact, C_Std_Scratch )  VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bindValue(1, $id);
     $stmt->bindValue(2, $name);
@@ -57,6 +57,7 @@ function addCourse($name,$address,$town, $county,$contact)
     $stmt->bindValue(4, $town);
     $stmt->bindValue(5, $county);
     $stmt->bindValue(6, $contact);
+    $stmt->bindValue(7, $scratch);
     $stmt->execute();
 }
 

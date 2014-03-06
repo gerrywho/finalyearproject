@@ -24,8 +24,8 @@ $length = count($array);
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE>
+<html>
     <head>
          <link rel="stylesheet" type="text/css" href="..//CSS/index.css">
    
@@ -34,6 +34,7 @@ $length = count($array);
     <body>
         <div id="grad1">
     <div id="grad2"><img src="..//Images/minilogo.png" alt="logo">
+        <button name="logout" id="logout" value="LOGOUT" onclick="parent.location='..//logout.php'">LOGOUT</button>
    
 </div>
     <div id="plane">

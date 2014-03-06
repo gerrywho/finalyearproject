@@ -1,49 +1,46 @@
 <?php
-//include_once 'Connection/taskmodel.php';
-setcookie("ID", "", time()-3600);
-setcookie("User", "", time()-3600);
-setcookie("Name", "", time()-3600);
+    include_once 'Connection/taskmodel.php';
+    setcookie("ID", "", time()-3600);
+    setcookie("User", "", time()-3600);
+    setcookie("Name", "", time()-3600);
 ?>
 <html>
     <head>
-    <link rel="stylesheet" type="text/css" href="../CSS/index.css">
+        <link rel="stylesheet" type="text/css" href="../CSS/index.css">
+        <link rel="stylesheet" type="text/css" href="..//CSS/bootstrap.css">
     </head>
 
-<body>
+    <body>
 
-    <div id="grad1">
-        <div id="grad2"><img src="../Images/minilogo.png" alt="logo">
-        </div>
-    <div id="plane">
-    <table width="300" border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
-        <tr>
-            <form name="form1" method="post" action="checklogin.php">
-                <td>
-    <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
-        <tr>
-            <td colspan="3"><strong>Society Login </strong></td>
-        </tr>
-        <tr>
-            <td width="78">Username</td>
-            <td width="6">:</td>
-            <td width="294"><input name="username" type="text" id="username"></td>
-        </tr>
-        <tr>
-            <td>Password</td>
-            <td>:</td>
-            <td><input name="password" type="text" id="password"></td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td><input type="submit" name="Submit" value="Login"></td>
-        </tr>
-    </table>
-        </td>
-            </form>
-    </tr>
-    </table>
-        </div>
+        <div id="grad1">
+            <div id="grad2"><img src="../Images/minilogo.png" alt="logo">
+            </div>
+            <div id="plane">
+
+                <form action="checklogin.php" method="post">
+                    <div id="heading"><h2>Society Login</h2></div>
+
+                    <div class="form-group">
+                        <h5><label for="username" class="col-sm-2 control-label">Username:</label></h5>
+                        <div class="col-sm-10">
+                            <input class="form-control" name="username" type="text" placeholder="Username" autofocus="true" /></td>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h5><label for="password" class="col-sm-2 control-label">Password:</label></h5>
+                        <div class="col-sm-10">
+                            <input class="form-control" name="password" type="password" placeholder="password" /></td>
+                        </div>
+                    </div>
+                    <div id="submit">
+                        <input type="submit" class="btn btn-primary" value="LOGIN" />
+                    </div>
+
+
+                </form>
+
+            </div>
         </div>
 
     </body>

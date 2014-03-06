@@ -48,8 +48,20 @@ background: linear-gradient(white,  #0026FF); /* Standard syntax */
     
 #plane
 {
-margin-left: 600px;
-margin-right: auto;
-margin-top: 275px;
+margin-left: 310px;
+margin-right: 100px;
+margin-top: 225px;
             
+}
+
+#heading
+{
+    margin-left: 250px;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+#submit
+{
+    margin-left: 550px;
 }
