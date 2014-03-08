@@ -72,29 +72,29 @@
                         <h5><label for="rounds" class="col-sm-2 control-label">Round Date:</label></h5>
                         <div class="col-sm-10">
                             <select name="rounds" class="form-control">
-                                <?php foreach($array1 as $option) : ?>
-                                <option value="<?php echo $option->R_ID; ?>"><?php echo "$option->R_Date"; ?></option>
-                                <?php endforeach; ?>
-                            </select>
+                                    <?php foreach($array1 as $option) : ?>
+                                    <option value="<?php echo $option->R_ID; ?>"><?php echo "$option->R_Date"; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                         </div>
                     </div>
 
-                    <div class="form-group">
+                     <div class="form-group">
                         <h5><label for="prizes" class="col-sm-2 control-label">Prize:</label></h5>
                         <div class="col-sm-10">
                             <select name="prizes" class="form-control">
                                 <option value="No Prize">No Prize</option>
-                                <option value="First Net">First Net</option>
-                                <option value="Second Net">Second Net</option>
-                                <option value="Third Net">Third Net</option>
-                                <option value="Class 1">Class 1</option>
-                                <option value="Class 2">Class 2</option>
-                                <option value="Class 3">Class 3</option>
-                                <option value="Nearest the Pin">Nearest the Pin</option>
-                                <option value="Longest Drive">Longest Drive</option>
-                            </select>
-                        </div>
-                    </div>
+                                    <option value="First Net">First Net</option>
+                                    <option value="Second Net">Second Net</option>
+                                    <option value="Third Net">Third Net</option>
+                                    <option value="Class 1">Class 1</option>
+                                    <option value="Class 2">Class 2</option>
+                                    <option value="Class 3">Class 3</option>
+                                    <option value="Nearest the Pin">Nearest the Pin</option>
+                                    <option value="Longest Drive">Longest Drive</option>
+                                </select>
+                            </div>
+                         </div>
 
                     <div class="form-group">
                         <h5><label for="itemscore" class="col-sm-2 control-label">Score:</label></h5>
@@ -106,7 +106,7 @@
                     <div class="form-group">
                         <h5><label for="checkboxname" class="col-sm-2 control-label">Manually Adjust:</label></h5>
                         <div class="col-sm-10">
-                            <input type="checkbox" class="form-control" name="checkboxname" value="unchecked" id="manual" />
+                            <input type="checkbox" class="form-control" name="checkboxname" value="unchecked" id="manual"/>
                         </div>
                     </div>
 
@@ -117,13 +117,11 @@
                         </div>
                     </div>
 
-
+                    
                     <span id="ifchecked"> </span>
                     <div id="submit">
-                        <input type="submit" class="btn btn-primary" value="Add item" />
-
-                    </div>
-                </form>
+                    <input type="submit" class="btn btn-primary" value="Add item" />
+                </div>
             </div>
         </div>
     </body>
