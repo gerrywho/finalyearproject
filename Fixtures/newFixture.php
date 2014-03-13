@@ -62,7 +62,7 @@
                             <input class="form-control" name="itemholes" type="number" placeholder="Holes" /></td>
                         </div>
                     </div>
-                    <div id="submit">
+                    <div id="fixsubmit">
                         <input type="submit" class="btn btn-primary" value="ADD FIXTURE" />
                     </div>
                 </form>

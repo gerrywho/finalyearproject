@@ -324,6 +324,41 @@ function calcHandicap($item_member, $item_rounddate, $item_score)
 
 }
 
+function usHandicap($item_member, $item_rounddate, $item_score, $item_slope)
+{
+     $conn = connect();
+    $society = $_COOKIE["ID"];
+    $sql1 = "SELECT H_ID from Handicap where H_ID =
+    (SELECT max(H_ID) from Handicap)";
+    $data = $conn->query($sql1);
+    $result1 = $data->fetch();
+    $id = $result1['H_ID'] + 1;
+
+    $sql = "SELECT C_ID from Round where R_ID = '$item_rounddate'";
+    $data = $conn->query($sql);
+    $result = $data->fetch();
+    $courses=$result['C_ID'];
+
+    $sql1 = "SELECT C_Std_Scratch from Course where C_ID = '$courses'";
+    $data1 = $conn->query($sql1);
+    $result1 = $data1->fetch();
+    $scratch=$result1['C_Std_Scratch'];
+
+    $differential = round(($item_score -  $scratch) * 113/$item_slope,1);
+
+    $sql5 = "INSERT INTO Handicap (H_ID, M_ID, S_ID, HCap_Date, HCap_Score) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql5);
+    $stmt->bindValue(1, $id);
+    $stmt->bindValue(2, $item_member);
+    $stmt->bindValue(3, $society);
+    $stmt->bindValue(4, date("Y/m/d"));
+    $stmt->bindValue(5, $differential);
+    $stmt->execute();
+
+
+
+}
+
 function random()
 {
         $len = 8;

@@ -14,9 +14,8 @@
             </div>
 
             <div id="plane">
-                <form action="addMember.php" method="post">
+                <form action="addmember.php" method="post">
                     <div id="heading"><h2>NEW MEMBER</h2></div>
-
 
                     <div class="form-group">
                         <h5><label for="itemfname" class="col-sm-2 control-label">First Name:</label></h5>
@@ -33,21 +32,21 @@
                     </div>
 
                     <div class="form-group">
-                        <h5><label for="itememail" class="col-sm-2 control-label">Member Email:</label></h5>
+                        <h5><label for="itememail" class="col-sm-2 control-label">Email:</label></h5>
                         <div class="col-sm-10">
-                            <input class="form-control" name="itememail" type="email" placeholder="First Name" /></td>
+                            <input class="form-control" name="itememail" type="email" placeholder="Email" /></td>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <h5><label for="itemaddress" class="col-sm-2 control-label">Member Address:</label></h5>
+                        <h5><label for="itemaddress" class="col-sm-2 control-label">Address:</label></h5>
                         <div class="col-sm-10">
                             <input class="form-control" name="itemaddress" type="text" placeholder="Address" /></td>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <h5><label for="itemtown" class="col-sm-2 control-label">Member Town:</label></h5>
+                        <h5><label for="itemtown" class="col-sm-2 control-label">Town:</label></h5>
                         <div class="col-sm-10">
                             <input class="form-control" name="itemtown" type="text" placeholder="Town" /></td>
                         </div>
@@ -66,8 +65,16 @@
                             <input class="form-control" name="itemcontact" type="text" placeholder="Contact No." /></td>
                         </div>
                     </div>
-                    <div id="submit">
-                        <input type="submit" class="btn btn-primary" value="SUBMIT" />
+
+                    <div class="form-group">
+                        <h5><label for="itemhandicap" class="col-sm-2 control-label">Handicap:</label></h5>
+                        <div class="col-xs-2">
+                            <input class="form-control" name="itemhandicap" type="number" min="0" max="36" /></td>
+                        </div>
+                    </div>
+
+                    <div id="fixsubmit">
+                        <input type="submit" class="btn btn-primary" value="ADD MEMBER" />
                     </div>
                 </form>
             </div>

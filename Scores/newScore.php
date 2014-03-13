@@ -39,23 +39,34 @@
     
 ?>
 
+
 <html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="..//CSS/index.css">
         <link rel="stylesheet" type="text/css" href="..//CSS/bootstrap.css">
+
+
+
+        <link rel="stylesheet" type="text/css" href="..//CSS/jquery-ui-1.10.4.custom.css">
         <script src="http://code.jquery.com/jquery-1.11.0.js"></script>
         <script src="js/myScript.js" type="text/javascript"></script>
+        <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+
+        <script type="text/javascript" src="js/main.js"></script>
 
     </head>
     <body>
         <div id="grad1">
+            <div id="tooltip" hidden><img src="images/tooltip.bmp"></div>
             <div id="grad2"><img src="..//Images/minilogo.png" alt="logo">
                 <button name="logout" id="logout" value="LOGOUT" onclick="parent.location='./logout.php'">LOGOUT</button>
             </div>
 
-            <div id="plane">
+            <div id="scoreplane">
                 <form action="addScore.php" method="post">
-                    <div id="heading"><h2>NEW SCORES</h2></div>
+                    <div id="scoreheading"><h2>NEW SCORES<a href="#" id="hideshow"><span class="glyphicon glyphicon-info-sign"></span></a></h2></div>
+
+
 
                     <div class="form-group">
                         <h5><label for="members" class="col-sm-2 control-label">Player Name:</label></h5>
@@ -72,29 +83,29 @@
                         <h5><label for="rounds" class="col-sm-2 control-label">Round Date:</label></h5>
                         <div class="col-sm-10">
                             <select name="rounds" class="form-control">
-                                    <?php foreach($array1 as $option) : ?>
-                                    <option value="<?php echo $option->R_ID; ?>"><?php echo "$option->R_Date"; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
+                                <?php foreach($array1 as $option) : ?>
+                                <option value="<?php echo $option->R_ID; ?>"><?php echo "$option->R_Date"; ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                     </div>
 
-                     <div class="form-group">
+                    <div class="form-group">
                         <h5><label for="prizes" class="col-sm-2 control-label">Prize:</label></h5>
                         <div class="col-sm-10">
                             <select name="prizes" class="form-control">
                                 <option value="No Prize">No Prize</option>
-                                    <option value="First Net">First Net</option>
-                                    <option value="Second Net">Second Net</option>
-                                    <option value="Third Net">Third Net</option>
-                                    <option value="Class 1">Class 1</option>
-                                    <option value="Class 2">Class 2</option>
-                                    <option value="Class 3">Class 3</option>
-                                    <option value="Nearest the Pin">Nearest the Pin</option>
-                                    <option value="Longest Drive">Longest Drive</option>
-                                </select>
-                            </div>
-                         </div>
+                                <option value="First Net">First Net</option>
+                                <option value="Second Net">Second Net</option>
+                                <option value="Third Net">Third Net</option>
+                                <option value="Class 1">Class 1</option>
+                                <option value="Class 2">Class 2</option>
+                                <option value="Class 3">Class 3</option>
+                                <option value="Nearest the Pin">Nearest the Pin</option>
+                                <option value="Longest Drive">Longest Drive</option>
+                            </select>
+                        </div>
+                    </div>
 
                     <div class="form-group">
                         <h5><label for="itemscore" class="col-sm-2 control-label">Score:</label></h5>
@@ -104,24 +115,37 @@
                     </div>
 
                     <div class="form-group">
-                        <h5><label for="checkboxname" class="col-sm-2 control-label">Manually Adjust:</label></h5>
-                        <div class="col-sm-10">
-                            <input type="checkbox" class="form-control" name="checkboxname" value="unchecked" id="manual"/>
+                        <h5><label for="uscheck" class="col-sm-2 control-label">USGA System:<a href="#" id="hideshow"><span class="glyphicon glyphicon-info-sign"></span></a></label></h5>
+                        <div class="col-xs-4">
+                            <input type="checkbox" class="form-control" name="uscheck" value="unchecked" id="uscheck" />
                         </div>
+                        <h5><label for="checkboxname" class="col-sm-2 control-label">Manually Adjust:</label></h5>
+                        <div class="col-xs-4">
+                            <input type="checkbox" class="form-control" name="checkboxname" value="unchecked" id="manual" />
+                        </div>
+
                     </div>
 
                     <div class="form-group">
+                        <h5><label for="itemslope" class="col-sm-2 control-label">Slope Index:</label></h5>
+                        <div class="col-xs-4">
+                            <input type="number" id="itemslope" class="form-control" name="itemslope" min="55" max="155" step="1" placeholder="Slope Index" disabled="disabled"/>
+                        </div>
                         <h5><label for="itemadjust" class="col-sm-2 control-label">Manual Adjustment:</label></h5>
-                        <div class="col-sm-10">
+                        <div class="col-xs-4">
                             <input class="form-control" id="itemadjust" name="itemadjust" type="number" min="-10" max="0.1" step="0.1" placeholder="H/C Adustment" disabled="disabled" />
                         </div>
+                        
                     </div>
 
-                    
+
+
+
                     <span id="ifchecked"> </span>
-                    <div id="submit">
-                    <input type="submit" class="btn btn-primary" value="Add item" />
-                </div>
+                    <div id="scoresubmit">
+                        <input type="submit" class="btn btn-primary" value="Add item" />
+                    </div>
+                </form>
             </div>
         </div>
     </body>

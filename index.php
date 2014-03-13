@@ -8,6 +8,8 @@ setcookie("Name", "", time()-3600, '/', 'azurewebsites.net');
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="CSS/index.css">
+    <link rel="stylesheet" type="text/css" href="CSS/bootstrap.css">
+    <link rel="stylesheet" href="CSS/responsive.css" media="screen and (max-device-width: 601px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 2) and (device-aspect-ratio: 25/38)">
 </head>
 <body>
 
@@ -16,12 +18,12 @@ setcookie("Name", "", time()-3600, '/', 'azurewebsites.net');
     <div id="grad2"><img src="Images/minilogo.png" alt="logo">
    
 </div>
-    <div id="plane">
-        <table>
-        <tr><td><input type="image" src="Images/player.png" onClick="parent.location='Member_Login/memberLogin.php'"></td></tr>
-        <tr><td><input type="image" src="Images/society.png" onClick="parent.location='Login/login.php'"></td></tr>
-        <tr><td><input type="image" src="Images/newSociety.png" onClick="parent.location='Society/newSociety.php'"></td></tr>
-        </table>
+    <div id="buttonplane">
+        <div id="go" class="btn-group btn-group-lg" ><button type="button" class="btn btn-primary" onClick="parent.location='Login/login.php'">SOCIETY LOGIN</button> </div>
+        <div id="keep" class="btn-group btn-group-lg" ><button type="button" class="btn btn-primary" onClick="parent.location='Member_Login/memberLogin.php'">MEMBER LOGIN</button> </div>
+        <div id="go1" class="btn-group btn-group-lg" ><button type="button" class="btn btn-primary" onClick="parent.location='Society/newSociety.php'">NEW SOCIETY</button> </div>
+         
+       
 </div>
     </div>
     

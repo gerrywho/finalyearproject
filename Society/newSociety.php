@@ -47,7 +47,7 @@
                             <input class="form-control" name="itemcontact" type="text" placeholder="Contact No." /></td>
                         </div>
                     </div>
-                    <div id="submit">
+                    <div id="socsubmit">
                         <input type="submit" class="btn btn-primary" value="Add item" />
                     </div>
                 </form>

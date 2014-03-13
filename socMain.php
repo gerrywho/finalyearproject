@@ -36,6 +36,9 @@ echo $_COOKIE["Name"];
             <td><input type="button" value="Handicap Sheet" onClick="parent.location='HCap_Sheet/hcapsheet.php'"></td>
             <td><input type="button" value="Stableford Checker" onClick="parent.location='Stableford_Scorer/stablefordScorer.php'"></td>
         </tr>
+            <tr>
+            <td><input type="button" value="Get USGA Handicap" onClick="parent.location='Handicaps/ushandicaps.php'"></td>
+            </tr>
         </table>
 </div>
     </div>

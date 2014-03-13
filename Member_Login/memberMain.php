@@ -10,6 +10,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="..//CSS/index.css">
         <link rel="stylesheet" type="text/css" href="..//CSS/bootstrap.css">
+        <link rel="stylesheet" href="..//CSS/responsive.css" media="screen and (max-device-width: 601px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 2) and (device-aspect-ratio: 25/38)">
         <script src="http://code.jquery.com/jquery-1.11.0.js"></script>
         <script src="..//WinRate/raphael.js" type="text/javascript"></script>
         <script src="..//WinRate/g.raphael-min.js" type="text/javascript"></script>
@@ -45,7 +46,7 @@
 
             <div id="graph">
                 <h2 align="center">HANDICAP PROGRESS</h2>
-                <?php echo $newArray->C_Name;?>
+                <?php //echo $newArray->C_Name;?>
                 <div id="draw"></div>
             </div>
 

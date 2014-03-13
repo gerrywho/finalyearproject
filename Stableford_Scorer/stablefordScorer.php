@@ -21,7 +21,7 @@
                 <button name="logout" id="logout" value="LOGOUT" onclick="parent.location='./logout.php'">LOGOUT</button>
             </div>
 
-            <div id="plane">
+            <div id="scorerplane">
 
                 <table style="float: left">
                     <tr>
