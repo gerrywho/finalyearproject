@@ -8,7 +8,7 @@ $data = $conn->query($sql);
 
 while($array[] = $data->fetch(PDO::FETCH_OBJ))
 {
-    echo $array->M_ID;
+    echo $array->Diff;
     //$newArray.array_push($array->C_ID);
 }
 array_pop($array);

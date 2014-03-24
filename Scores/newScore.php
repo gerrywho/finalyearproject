@@ -146,6 +146,7 @@
                         <input type="submit" class="btn btn-primary" value="Add item" />
                     </div>
                 </form>
+                <pre><?php print_r($sorted);?></pre>
             </div>
         </div>
     </body>
