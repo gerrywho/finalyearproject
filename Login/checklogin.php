@@ -30,6 +30,7 @@ if ($result['sum'] === '0') {
         //session_register("password");
         header("location:login_success.php");
     }
+    $conn = disconnect();
 }
 ?>
 
