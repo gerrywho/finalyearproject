@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div id="submit">
-                        <input type="submit" value="Add item" />
+                        <input type="submit" class="btn btn-primary" value="ADJUST H/C" />
                     </div>
                 </form>
             </div>

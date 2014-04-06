@@ -50,7 +50,7 @@
 
             <div id="plane">
                 <form action="uscalc.php" method="post">
-                    <div id="heading"><h2>HANDICAP ADJUSTMENT</h2></div>
+                    <div id="heading"><h2>DAILY HANDICAP</h2></div>
 
                     <div class="form-group">
                         <h5><label for="members" class="col-sm-2 control-label">Player Name:</label></h5>
@@ -75,7 +75,7 @@
                     
                   
                      <div id="submit">
-                        <input type="submit" value="Add item" />
+                        <input type="submit" value="CALCULATE" />
                     </div>
                 </form>
             </div>

@@ -8,8 +8,9 @@ $item_address = $_POST['itemaddress'];
 $item_town = $_POST['itemtown'];
 $item_county = $_POST['itemcounty'];
 $item_contact = $_POST['itemcontact'];
+$item_handicap = $_POST['itemhandicap'];
 
-addMember($item_fname, $item_lname, $item_email, $item_address, $item_town, $item_county, $item_contact);
+addMember($item_fname, $item_lname, $item_email, $item_address, $item_town, $item_county, $item_contact, $item_handicap);
 header('Location: newMember.php');
 ?>
 

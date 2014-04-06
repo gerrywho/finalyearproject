@@ -196,7 +196,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-10">
-                            <button type="button" id="submitbutton" class="btn-group btn-group-sm" onclick="myFunction()">Click me</button>
+                            <button type="button" id="submitbutton" class="btn btn-primary" onclick="myFunction()">CALCULATE</button>
                         </div>
                     </div>
 

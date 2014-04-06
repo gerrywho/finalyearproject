@@ -95,7 +95,7 @@
         }
     
     
-        function addMember($item_fname, $item_lname, $item_email, $item_address, $item_town, $item_county, $item_contact)
+        function addMember($item_fname, $item_lname, $item_email, $item_address, $item_town, $item_county, $item_contact, $hcap)
         {
             $conn = connect();
             $sql1 = "SELECT M_ID from Member where M_ID =
@@ -103,6 +103,13 @@
             $data = $conn->query($sql1);
             $result1 = $data->fetch();
             $id = $result1['M_ID'] + 1;
+
+             $sql2 = "SELECT H_ID from Handicap where H_ID =
+            (SELECT max(H_ID) from Handicap)";
+            $data1 = $conn->query($sql2);
+            $result2 = $data1->fetch();
+            $hid = $result2['H_ID'] + 1;
+
             $society = $_COOKIE["ID"];
             $len = 8;
             $pwd = random();
@@ -119,6 +126,15 @@
             $stmt->bindValue(9, $item_county);
             $stmt->bindValue(10, $item_contact);
             $stmt->execute();
+
+            $sql2 = "INSERT INTO Handicap (H_ID, M_ID, S_ID, HCap_Date, HCap_Score) VALUES (?, ?, ?, ? , ?)";
+            $stmt1 = $conn->prepare($sql2);
+            $stmt1->bindValue(1, $hid);
+            $stmt1->bindValue(2, $id);
+            $stmt1->bindValue(3, $society);
+            $stmt1->bindValue(4, date("Y/m/d"));
+            $stmt1->bindValue(5, $hcap);
+            $stmt1->execute();
             $conn = disconnect();
         }
     
@@ -167,6 +183,7 @@
             $result2 = $data1->fetch();
             $courses=$result2['C_ID'];
     
+            try{
             $sql3 = "INSERT INTO Player_Round (R_ID, C_ID, S_ID, M_ID, P_R_Score, prize) VALUES (?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql3);
             $stmt->bindValue(1, $item_rounddate);
@@ -176,6 +193,21 @@
             $stmt->bindValue(5, $item_score);
             $stmt->bindValue(6, $item_prize);
             $stmt->execute();
+            }
+            catch (PDOException $e)
+            {
+                $sql4 = "UPDATE Player_Round set P_R_Score = ? where R_ID = ? AND M_ID = ?;";
+                $stmt1 = $conn->prepare($sql4);
+                $stmt1->bindValue(1, $item_score);
+                $stmt1->bindValue(2, $item_rounddate);
+                $stmt1->bindValue(3, $item_member);
+                $stmt1->execute();
+            }
+           
+            
+               
+           
+
             $conn = disconnect();
     
         }
@@ -332,6 +364,13 @@
             $stmt->bindValue(4, date("Y/m/d"));
             $stmt->bindValue(5, $newHandicap);
             $stmt->execute();
+             
+             if(!$stmt) {
+                 $testsql = "update Handicap set HCap_Score = '$newHandicap' where H_ID = '$id';";
+                 $teststmt = $conn->query($testsql);
+             }  
+
+
             $conn = disconnect();
     
         }

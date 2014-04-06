@@ -22,7 +22,7 @@ else if(isset($_POST['uscheck']))
 }
 else{
     addScore($item_member, $item_rounddate, $item_prize, $item_score); 
-   calcHandicap($item_member, $item_rounddate, $item_score);
+    calcHandicap($item_member, $item_rounddate, $item_score);
 }
 
 

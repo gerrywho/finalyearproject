@@ -56,16 +56,19 @@
 
     </head>
     <body>
+        
         <div id="grad1">
             <div id="tooltip" hidden><img src="images/tooltip.bmp"></div>
+            
             <div id="grad2"><img src="..//Images/minilogo.png" alt="logo">
                <div class="btn-group" style="margin-left:10px; margin-right: auto; margin-top: 10px">
                     <button name="main" class="btn btn-default" id="main" onclick="parent.location='..//socMain.php'">MAIN MENU</button>
                     <button name="logout" style="margin-left:10px; margin-top: 5px" class="btn btn-default" id="logout" value="LOGOUT" onclick="parent.location='..//logout.php'">LOGOUT</button>
 
                 </div>
+                <div id="tooltip2" hidden><img src="images/tooltip2.bmp"></div>
             </div>
-
+            
             <div id="scoreplane">
                 <form action="addScore.php" method="post">
                     <div id="scoreheading"><h2>NEW SCORES<a href="#" id="hideshow"><span class="glyphicon glyphicon-info-sign"></span></a></h2></div>
@@ -119,7 +122,7 @@
                     </div>
 
                     <div class="form-group">
-                        <h5><label for="uscheck" class="col-sm-2 control-label">USGA System:<a href="#" id="hideshow"><span class="glyphicon glyphicon-info-sign"></span></a></label></h5>
+                        <h5><label for="uscheck" class="col-sm-2 control-label">USGA System:<a href="#" id="hideshow2"><span class="glyphicon glyphicon-info-sign"></span></a></label></h5>
                         <div class="col-xs-4">
                             <input type="checkbox" class="form-control" name="uscheck" value="unchecked" id="uscheck" />
                         </div>
@@ -147,11 +150,12 @@
 
                     <span id="ifchecked"> </span>
                     <div id="scoresubmit">
-                        <input type="submit" class="btn btn-primary" value="Add item" />
+                        <input type="submit" class="btn btn-primary" value="ADD SCORE" />
                     </div>
                 </form>
-                <pre><?php print_r($sorted);?></pre>
+                
             </div>
+
         </div>
     </body>
 </html>

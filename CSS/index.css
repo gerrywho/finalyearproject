@@ -88,6 +88,14 @@ td {
     float: right;
  }
 
+#tooltip2 {
+    height: 280px;
+    width: 300px;
+    margin-left: 60px;
+    margin-top: 180px;
+    float: left;
+ }
+
 #heading {
     margin-left: 250px;
     margin-right: auto;
@@ -101,11 +109,11 @@ td {
 }
 
 #submit {
-    margin-left: 690px;
+    margin-left: 660px;
 }
 
 #socsubmit {
-    margin-left: 680px;
+    margin-left: 640px;
 }
 
 #fixsubmit {
@@ -113,17 +121,17 @@ td {
 }
 
 #scoresubmit {
-    margin-left: 660px;
+    margin-left: 630px;
 }
 
 
 
 #fixtures {
-    height: 250px;
-    width: 540px;
+    height: 240px;
+    width: 530px;
     border-radius: 10%;
-    margin-left: 127px;
-    margin-top: 127px;
+    margin-left: 142px;
+    margin-top: 147px;
     margin-right: 5px;
     float: left;
     border: 2px solid;
@@ -133,7 +141,7 @@ td {
     height: 300px;
     width: 630px;
     border-radius: 10%;
-    margin-top: 127px;
+    margin-top: 142px;
     float: right;
     border: 2px solid;
 }
@@ -142,7 +150,7 @@ td {
     height: 250px;
     width: 500px;
     border-radius: 10%;
-    margin-left: 127px;
+    margin-left: 142px;
     margin-top: 20px;
     margin-right: 10px;
     float: left;

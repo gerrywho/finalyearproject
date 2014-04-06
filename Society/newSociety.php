@@ -7,15 +7,14 @@
         <link rel="stylesheet" type="text/css" href="..//CSS/index.css">
         <link rel="stylesheet" type="text/css" href="..//CSS/bootstrap.css">
         <meta charset="utf-8" />
-        <title>LOGIN PAGE</title>
-    </head>
+        </head>
 
     <body>
         <div id="grad1">
             <div id="grad2"><img src="..//Images/minilogo.png" alt="logo">
                 <div class="btn-group" style="margin-left:10px; margin-right: auto; margin-top: 10px">
-                    <button name="main" class="btn btn-default" id="main" onclick="parent.location='..//socMain.php'">MAIN MENU</button>
-                    <button name="logout" style="margin-left:10px; margin-top: 5px" class="btn btn-default" id="logout" value="LOGOUT" onclick="parent.location='..//logout.php'">LOGOUT</button>
+                    
+                    <button name="logout" style="margin-left:10px; margin-top: 5px" class="btn btn-default" id="logout" value="LOGOUT" onclick="parent.location='..//logout.php'">LOGIN</button>
 
                 </div>
             </div>
@@ -52,7 +51,7 @@
                         </div>
                     </div>
                     <div id="socsubmit">
-                        <input type="submit" class="btn btn-primary" value="Add item" />
+                        <input type="submit" class="btn btn-primary" value="ADD SOCIETY" />
                     </div>
                 </form>
             </div>

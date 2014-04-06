@@ -36,7 +36,7 @@
                     <div id="heading"><h2>NEW FIXTURE</h2></div>
 
                     <div class="form-group">
-                        <h5><label for="courses" class="col-sm-2 control-label">Society Name:</label></h5>
+                        <h5><label for="courses" class="col-sm-2 control-label">Course Name:</label></h5>
                         <div class="col-sm-10">
                             <select name="courses" class="form-control">
                                 <?php foreach($array as $option) : ?>

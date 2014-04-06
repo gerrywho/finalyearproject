@@ -2,8 +2,9 @@
 include_once '..//Connection/taskmodel.php';
 
 $conn=connect();
-$sql = "select M_ID, count(*) as Wins from
-(select top(3) M_ID from Player_Round order by M_ID desc) as a group by (M_ID);";
+$sql = "select  M_ID, M_F_NAME+ ' ' + M_L_NAME as Name, count(*) as Wins from
+(select top(10) M.M_ID, M_F_NAME, M_L_NAME from PLAYER_ROUND PR join MEMBER M on (M.M_ID = PR.M_ID) order by M_ID desc) 
+as A group by M_ID, M_F_NAME, M_L_NAME;";
 $data = $conn->query($sql);
 
 while($array[] = $data->fetch(PDO::FETCH_OBJ))
