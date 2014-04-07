@@ -4,6 +4,9 @@
             *Final Year Project 2014
         */
     
+        
+        
+        //Database connection module
         function connect()
         {
     
@@ -22,11 +25,15 @@
             return $conn;
         }
 
+
+        //Close database connection
         function disconnect()
         {
             $conn = null;
         }
     
+
+        //Gets input from addSociety and enters into database accordingly
         function addSociety($name, $email, $pwd, $contact)
         {
             $conn = connect();
@@ -48,6 +55,8 @@
 
         }
     
+
+        //Gets input from addCourse and enters into database accordingly
         function addCourse($name,$address,$town, $county,$contact,$scratch)
         {
             $conn = connect();
@@ -70,6 +79,9 @@
             $conn = disconnect();
         }
     
+
+        
+        //Gets input from addFixture and enters into database accordingly
         function addFixture($courses, $item_date, $item_time, $item_holes)
         {
             $conn = connect();
@@ -95,6 +107,8 @@
         }
     
     
+       
+        //Gets input from addMember and enters into database accordingly       
         function addMember($item_fname, $item_lname, $item_email, $item_address, $item_town, $item_county, $item_contact, $hcap)
         {
             $conn = connect();
@@ -138,6 +152,9 @@
             $conn = disconnect();
         }
     
+
+
+        //Gets input from addHandicap and enters into database accordingly
         function addHandicap($members, $itemadjust)
         {
             $conn = connect();
@@ -171,6 +188,9 @@
             $conn = disconnect();
         }
     
+
+
+        //Gets input from addScore and enters into database accordingly
         function addScore($item_member, $item_rounddate, $item_prize, $item_score) {
     
              $conn = connect();
@@ -212,6 +232,9 @@
     
         }
     
+
+
+        //Gets input from addScore and calculates CONGU handicap.  Enters info into database
         function calcHandicap($item_member, $item_rounddate, $item_score)
         {
             $conn = connect();
@@ -375,6 +398,9 @@
     
         }
     
+
+
+        //Gets input from addScore and calculates handicap differential using USGA.  Enters into database
         function usHandicap($item_member, $item_rounddate, $item_score, $item_slope)
         {
              $conn = connect();
@@ -490,7 +516,11 @@
     
     
         }
-    
+
+
+
+
+        //Calculates handicap based on differentials
         function uscalc($members) {
     
            $conn = connect();
@@ -511,6 +541,9 @@
     
      }
     
+
+
+        //Random password generator called for member insert
         function random()
         {
                 $len = 8;

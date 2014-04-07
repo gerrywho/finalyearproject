@@ -3,6 +3,8 @@
                 *C10711059
                 *Final Year Project 2014
             */
+            
+    //Prepares inputs from newMember to go to taskmodel function
     require_once '..//Connection/taskmodel.php';
     
     $item_fname = $_POST['itemfname'];

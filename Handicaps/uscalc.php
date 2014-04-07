@@ -7,6 +7,7 @@
     $members = $_POST['member'];
     $itemslope = $_POST['itemslope'];
     
+    //Selects last 20 differntials for handicap calculation
    $conn = connect();
           $sql8 = "SELECT top(20) * from Differential where M_ID ='$members' order by D_ID desc";
              $diffdata = $conn->query($sql8);

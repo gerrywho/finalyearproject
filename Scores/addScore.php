@@ -3,6 +3,8 @@
                 *C10711059
                 *Final Year Project 2014
             */
+
+    //Prepares inputs from newScore to go to relevant taskmodel function
     require_once '..//Connection/taskmodel.php';
     
     $item_member = $_POST['members'];
