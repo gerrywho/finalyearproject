@@ -1,4 +1,8 @@
 <?php
+    /** Gerard Nugent 
+            *C10711059
+            *Final Year Project 2014
+        */
     include_once '..//Connection/taskmodel.php';
 ?>
 
@@ -7,13 +11,13 @@
         <link rel="stylesheet" type="text/css" href="..//CSS/index.css">
         <link rel="stylesheet" type="text/css" href="..//CSS/bootstrap.css">
         <meta charset="utf-8" />
-        </head>
+    </head>
 
     <body>
         <div id="grad1">
             <div id="grad2"><img src="..//Images/minilogo.png" alt="logo">
                 <div class="btn-group" style="margin-left:10px; margin-right: auto; margin-top: 10px">
-                    
+
                     <button name="logout" style="margin-left:10px; margin-top: 5px" class="btn btn-default" id="logout" value="LOGOUT" onclick="parent.location='..//logout.php'">LOGIN</button>
 
                 </div>

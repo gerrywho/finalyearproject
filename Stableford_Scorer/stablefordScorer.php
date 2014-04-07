@@ -1,5 +1,8 @@
 <?php
-    
+    /** Gerard Nugent 
+            *C10711059
+            *Final Year Project 2014
+        */
 ?>
 
 <!DOCTYPE html>
@@ -177,20 +180,20 @@
 
                 </table>
                 <div style="float: left">
-                    
+
                     <div class="form-group">
                         <h5><label for="handicap" class="col-sm-2 control-label">HANDICAP:</label></h5>
                         <div class="col-sm-10">
-                            <input class="form-control" id="handicap" name="handicap" type="number" min="0" max="36" step="1"/>
+                            <input class="form-control" id="handicap" name="handicap" type="number" min="0" max="36" step="1" />
                         </div>
                     </div>
-                
 
-     
+
+
                     <div class="form-group">
                         <h5><label for="endscore" class="col-sm-2 control-label">POINT SCORE:</label></h5>
                         <div class="col-sm-10">
-                            <input class="form-control" id="endscore" name="endscore" type="number" min="0" max="64" step="1"/>
+                            <input class="form-control" id="endscore" name="endscore" type="number" min="0" max="64" step="1" />
                         </div>
                     </div>
 
@@ -200,7 +203,7 @@
                         </div>
                     </div>
 
-               </div>
+                </div>
             </div>
         </div>
     </body>

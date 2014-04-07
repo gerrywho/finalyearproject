@@ -1,6 +1,9 @@
 <?php
-    //$memberfname= $_COOKIE["FName"];
-    //$memberlname= $_COOKIE["LName"];
+    /** Gerard Nugent 
+            *C10711059
+            *Final Year Project 2014
+        */
+   
     include_once '/fixtures.php';
     require_once '/memberscores.php';
     require_once '/lastround.php';

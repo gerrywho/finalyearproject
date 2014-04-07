@@ -1,4 +1,8 @@
 <?php
+    /** Gerard Nugent 
+            *C10711059
+            *Final Year Project 2014
+        */
     include_once '..//Connection/taskmodel.php';
     $members = $_POST['member'];
     $itemslope = $_POST['itemslope'];

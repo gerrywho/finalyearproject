@@ -1,4 +1,8 @@
 <?php
+    /** Gerard Nugent 
+            *C10711059
+            *Final Year Project 2014
+        */
     header('location:..//socMain.php');
 ?>
 

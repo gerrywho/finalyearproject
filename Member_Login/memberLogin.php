@@ -1,4 +1,8 @@
 <?php
+    /** Gerard Nugent 
+            *C10711059
+            *Final Year Project 2014
+        */
     setcookie("ID", "", time()-3600);
     setcookie("User", "", time()-3600);
     setcookie("Name", "", time()-3600);

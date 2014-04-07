@@ -1,37 +1,42 @@
 <?php
-    include_once '..//Connection/taskmodel.php';
     
-    //Connection to database
-    $conn=connect();
+    /** Gerard Nugent 
+                *C10711059
+                *Final Year Project 2014
+            */
+        include_once '..//Connection/taskmodel.php';
     
-    //Get Society ID from cookie
-    $society=$_COOKIE["ID"];
+        //Connection to database
+        $conn=connect();
     
-    
-    //Code for array for member dropdown
-    //SQL for all members in logged in society
-    
-    $sql = "SELECT * FROM Member WHERE S_ID = '$society' ORDER BY M_L_Name";
-    $data = $conn->query($sql);
-    
-    while($array[] = $data->fetch(PDO::FETCH_OBJ))
-    {
-        echo $array->M_F_Name;
-    }
-    array_pop($array);
+        //Get Society ID from cookie
+        $society=$_COOKIE["ID"];
     
     
+        //Code for array for member dropdown
+        //SQL for all members in logged in society
     
-    //Code for array for round date
-    //SQL for all round dates for logged in society
-    $sql1 = "SELECT * FROM Round WHERE S_ID = '$society'";
-    $data1 = $conn->query($sql1);
+        $sql = "SELECT * FROM Member WHERE S_ID = '$society' ORDER BY M_L_Name";
+        $data = $conn->query($sql);
     
-    while($array1[] = $data1->fetch(PDO::FETCH_OBJ))
-    {
-        echo $array1->R_Date;
-    }
-    array_pop($array1);
+        while($array[] = $data->fetch(PDO::FETCH_OBJ))
+        {
+            echo $array->M_F_Name;
+        }
+        array_pop($array);
+    
+    
+    
+        //Code for array for round date
+        //SQL for all round dates for logged in society
+        $sql1 = "SELECT * FROM Round WHERE S_ID = '$society'";
+        $data1 = $conn->query($sql1);
+    
+        while($array1[] = $data1->fetch(PDO::FETCH_OBJ))
+        {
+            echo $array1->R_Date;
+        }
+        array_pop($array1);
     
     
     
@@ -56,19 +61,19 @@
 
     </head>
     <body>
-        
+
         <div id="grad1">
             <div id="tooltip" hidden><img src="images/tooltip.bmp"></div>
-            
+
             <div id="grad2"><img src="..//Images/minilogo.png" alt="logo">
-               <div class="btn-group" style="margin-left:10px; margin-right: auto; margin-top: 10px">
+                <div class="btn-group" style="margin-left:10px; margin-right: auto; margin-top: 10px">
                     <button name="main" class="btn btn-default" id="main" onclick="parent.location='..//socMain.php'">MAIN MENU</button>
                     <button name="logout" style="margin-left:10px; margin-top: 5px" class="btn btn-default" id="logout" value="LOGOUT" onclick="parent.location='..//logout.php'">LOGOUT</button>
 
                 </div>
                 <div id="tooltip2" hidden><img src="images/tooltip2.bmp"></div>
             </div>
-            
+
             <div id="scoreplane">
                 <form action="addScore.php" method="post">
                     <div id="scoreheading"><h2>NEW SCORES<a href="#" id="hideshow"><span class="glyphicon glyphicon-info-sign"></span></a></h2></div>
@@ -136,13 +141,13 @@
                     <div class="form-group">
                         <h5><label for="itemslope" class="col-sm-2 control-label">Slope Index:</label></h5>
                         <div class="col-xs-4">
-                            <input type="number" id="itemslope" class="form-control" name="itemslope" min="55" max="155" step="1" placeholder="Slope Index" disabled="disabled"/>
+                            <input type="number" id="itemslope" class="form-control" name="itemslope" min="55" max="155" step="1" placeholder="Slope Index" disabled="disabled" />
                         </div>
                         <h5><label for="itemadjust" class="col-sm-2 control-label">Manual Adjustment:</label></h5>
                         <div class="col-xs-4">
                             <input class="form-control" id="itemadjust" name="itemadjust" type="number" min="-10" max="0.1" step="0.1" placeholder="H/C Adustment" disabled="disabled" />
                         </div>
-                        
+
                     </div>
 
 
@@ -153,7 +158,7 @@
                         <input type="submit" class="btn btn-primary" value="ADD SCORE" />
                     </div>
                 </form>
-                
+
             </div>
 
         </div>

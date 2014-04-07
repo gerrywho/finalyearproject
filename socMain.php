@@ -1,5 +1,8 @@
 <?php
-    
+    /** Gerard Nugent 
+            *C10711059
+            *Final Year Project 2014
+        */
     echo $_COOKIE["Name"];
     
     
@@ -40,28 +43,28 @@
                     </div>
                 </div>
 
-            <div class="row">
-            <div class="col-md-6">
-                      <button type="button" class="btn btn-default btn-lg btn-block" value="FIXTURES" onclick="parent.location='Handicaps/newHandicap.php'">HANDICAPS</button>
-                </div>
-                <div class="col-md-6">
-                    <input type="button"class="btn btn-default btn-lg btn-block" value="WINS" onclick="parent.location='WinRate/wins.php'">
-                </div>
-            </div>
-
-            <div class="row">
-            <div class="col-md-6">
-                    <input type="button" class="btn btn-default btn-lg btn-block" value="H/C SHEET" onclick="parent.location='HCap_Sheet/hcapsheet.php'">
-                </div>
-                <div class="col-md-6">
-                    <input type="button" class="btn btn-default btn-lg btn-block" value="S/F CHECKER" onclick="parent.location='Stableford_Scorer/stablefordScorer.php'">
-                </div>
-            </div>
                 <div class="row">
-                <div class="col-md-6">
-                    <input type="button" class="btn btn-default btn-lg btn-block" value="USGA HANDICAP" onclick="parent.location='Handicaps/ushandicaps.php'">
-                </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-default btn-lg btn-block" value="FIXTURES" onclick="parent.location='Handicaps/newHandicap.php'">HANDICAPS</button>
                     </div>
+                    <div class="col-md-6">
+                        <input type="button" class="btn btn-default btn-lg btn-block" value="WINS" onclick="parent.location='WinRate/wins.php'">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="button" class="btn btn-default btn-lg btn-block" value="H/C SHEET" onclick="parent.location='HCap_Sheet/hcapsheet.php'">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="button" class="btn btn-default btn-lg btn-block" value="S/F CHECKER" onclick="parent.location='Stableford_Scorer/stablefordScorer.php'">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="button" class="btn btn-default btn-lg btn-block" value="USGA HANDICAP" onclick="parent.location='Handicaps/ushandicaps.php'">
+                    </div>
+                </div>
 
             </div>
         </div>
